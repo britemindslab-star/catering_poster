@@ -512,31 +512,36 @@
       font-family: "Fredoka One", "Nunito", Arial, sans-serif;
     }
 
-    .contact-grid {
+    .contact-list {
       margin-top: 11px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 9px;
+      gap: 2px;
     }
 
-    .contact-item {
-      border-radius: 11px;
-      border: 1px solid #d8e3ff;
-      background: #f8fbff;
-      padding: 10px 11px;
-      min-height: 87px;
+    .contact-row {
+      margin: 0;
+      padding: 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 5px 9px;
+      border-bottom: 1px dashed #d8e3ff;
     }
 
-    .contact-label {
-      margin: 0 0 4px;
-      font-size: 11px;
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-key {
+      margin: 0;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.07em;
       color: #5e6b95;
       font-weight: 900;
     }
 
-    .contact-value {
+    .contact-text {
       margin: 0;
       font-size: 16px;
       line-height: 1.34;
@@ -545,7 +550,7 @@
       overflow-wrap: anywhere;
     }
 
-    .contact-value a {
+    .contact-link {
       color: #273eaa;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
@@ -715,8 +720,10 @@
         height: 135px;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
       }
 
       .addon-pills li {
@@ -893,23 +900,19 @@
 
       <section class="cta">
         <h3>Let's Plan Your Party!</h3>
-        <div class="contact-grid">
-          <article class="contact-item">
-            <p class="contact-label">Website</p>
-            <p class="contact-value">
-              <a href="https://www.britemindslab.com/">www.britemindslab.com</a>
-            </p>
-          </article>
-          <article class="contact-item">
-            <p class="contact-label">Phone</p>
-            <p class="contact-value">778-223-7006</p>
-          </article>
-          <article class="contact-item">
-            <p class="contact-label">Email</p>
-            <p class="contact-value">
-              <a href="mailto:britemindslab@gmail.com">britemindslab@gmail.com</a>
-            </p>
-          </article>
+        <div class="contact-list">
+          <p class="contact-row">
+            <span class="contact-key">Website:</span>
+            <a class="contact-text contact-link" href="https://www.britemindslab.com/">www.britemindslab.com</a>
+          </p>
+          <p class="contact-row">
+            <span class="contact-key">Phone:</span>
+            <span class="contact-text">778-223-7006</span>
+          </p>
+          <p class="contact-row">
+            <span class="contact-key">Email:</span>
+            <a class="contact-text contact-link" href="mailto:britemindslab@gmail.com">britemindslab@gmail.com</a>
+          </p>
         </div>
         <p class="service-area">
           Serving indoor playgrounds and family events across the community.
