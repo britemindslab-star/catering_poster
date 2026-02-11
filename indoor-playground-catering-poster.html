@@ -6,15 +6,17 @@
   <title>BriteMinds Indoor Playground Catering Poster</title>
   <style>
     :root {
-      --bg: #f4f8ff;
+      --ink: #1a2250;
+      --ink-soft: #49567c;
       --card: #ffffff;
-      --ink: #1b2440;
-      --muted: #546081;
-      --primary: #7c4dff;
-      --secondary: #ff6f91;
-      --accent: #00b8d9;
-      --ring: #dbe5ff;
-      --good: #13a67a;
+      --ring: #d9dff9;
+      --violet: #7047ff;
+      --magenta: #ff4f8c;
+      --orange: #ff9a3d;
+      --teal: #19c6c0;
+      --blue: #3b8dff;
+      --lime: #a3d83f;
+      --shadow: 0 20px 44px rgba(39, 55, 120, 0.14);
     }
 
     * {
@@ -23,156 +25,272 @@
 
     body {
       margin: 0;
-      padding: 24px;
-      font-family: "Segoe UI", "Inter", Arial, sans-serif;
+      padding: 22px;
       color: var(--ink);
+      font-family: "Segoe UI", "Inter", Arial, sans-serif;
       background:
-        radial-gradient(circle at 15% 15%, #ffe5f2 0%, transparent 32%),
-        radial-gradient(circle at 90% 30%, #dff7ff 0%, transparent 28%),
-        radial-gradient(circle at 20% 85%, #e8f6df 0%, transparent 30%),
-        var(--bg);
+        radial-gradient(circle at 12% 14%, #ffe9f5 0, transparent 24%),
+        radial-gradient(circle at 85% 12%, #dff8ff 0, transparent 22%),
+        radial-gradient(circle at 16% 80%, #fef2de 0, transparent 24%),
+        radial-gradient(circle at 84% 85%, #e7f8e9 0, transparent 24%),
+        #f4f7ff;
     }
 
     .poster {
       width: min(210mm, 96vw);
       min-height: 297mm;
       margin: 0 auto;
-      background: var(--card);
-      border: 1px solid var(--ring);
-      border-radius: 24px;
+      border-radius: 26px;
       overflow: hidden;
-      box-shadow: 0 22px 50px rgba(24, 42, 98, 0.14);
+      background: #ffffff;
+      border: 1px solid #dbe4ff;
+      box-shadow: var(--shadow);
     }
 
     .hero {
-      padding: 36px 40px 34px;
+      position: relative;
+      padding: 34px 34px 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      color: #ffffff;
       background:
-        linear-gradient(120deg, rgba(124, 77, 255, 0.95), rgba(255, 111, 145, 0.9)),
-        repeating-linear-gradient(
-          -45deg,
-          rgba(255, 255, 255, 0.09),
-          rgba(255, 255, 255, 0.09) 8px,
-          rgba(255, 255, 255, 0) 8px,
-          rgba(255, 255, 255, 0) 18px
-        );
-      color: #fff;
+        linear-gradient(132deg, rgba(112, 71, 255, 0.96), rgba(255, 79, 140, 0.9) 52%, rgba(255, 154, 61, 0.88));
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.22) 2px, transparent 2px);
+      background-size: 26px 26px;
+      opacity: 0.26;
+      pointer-events: none;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 14px;
+      letter-spacing: 0.08em;
       font-weight: 800;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.14;
+      margin: 14px 0 0;
+      font-size: clamp(29px, 4vw, 44px);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
     }
 
-    .hero p {
+    .hero-subtitle {
       margin: 14px 0 0;
       font-size: 18px;
       line-height: 1.5;
-      max-width: 950px;
-      opacity: 0.98;
+      max-width: 690px;
+      color: rgba(255, 255, 255, 0.98);
     }
 
-    .content {
-      padding: 32px 32px 28px;
+    .tag-row {
+      margin: 16px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.19);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #ffffff;
+    }
+
+    .hero-image {
+      align-self: stretch;
+      min-height: 250px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 14px 28px rgba(15, 24, 62, 0.22);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery {
+      padding: 18px 30px 4px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .gallery-grid {
       display: grid;
-      gap: 26px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 120px;
+      border: 1px solid #dce6ff;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 20, 56, 0.78) 70%);
+    }
+
+    .main-content {
+      padding: 20px 30px 24px;
+      display: grid;
+      gap: 20px;
     }
 
     .section-title {
-      margin: 0 0 14px;
-      font-size: 30px;
-      color: #22316a;
+      margin: 0;
+      font-size: 31px;
       line-height: 1.2;
+      color: #1f2c6e;
+      text-wrap: balance;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 16px;
+      align-items: start;
     }
 
     .combo-grid {
+      margin-top: 14px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 12px;
     }
 
-    .combo-card {
+    .combo {
+      padding: 14px 14px 12px;
       border: 1px solid var(--ring);
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      box-shadow: 0 8px 18px rgba(42, 61, 133, 0.08);
+    }
+
+    .combo-a {
+      border-top: 6px solid var(--teal);
+    }
+
+    .combo-b {
+      border-top: 6px solid var(--orange);
+    }
+
+    .combo-c {
+      border-top: 6px solid var(--magenta);
     }
 
     .combo-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 10px;
     }
 
     .combo-name {
       margin: 0;
-      font-size: 22px;
-      color: #27356f;
-      font-weight: 800;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      color: #223175;
     }
 
     .combo-price {
       margin: 0;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #edf0ff;
-      color: #2d3994;
       font-size: 18px;
-      font-weight: 800;
+      font-weight: 900;
+      color: #21316f;
+      background: #eaf0ff;
+      border-radius: 999px;
+      padding: 5px 11px;
       white-space: nowrap;
     }
 
     .combo-tagline {
+      margin: 7px 0 8px;
+      font-size: 13px;
+      color: #5d6a96;
+      font-weight: 700;
+    }
+
+    .combo ul {
       margin: 0;
-      color: var(--muted);
+      padding-left: 17px;
+      color: #303a5e;
       font-size: 14px;
-      font-weight: 600;
-    }
-
-    .combo-list {
-      margin: 2px 0 0;
-      padding-left: 18px;
-      color: #2d3652;
       line-height: 1.5;
-      font-size: 15px;
     }
 
-    .combo-list li + li {
-      margin-top: 5px;
+    .combo li + li {
+      margin-top: 4px;
     }
 
-    .split {
+    .stack {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
+      gap: 12px;
     }
 
     .panel {
-      background: #fff;
+      border-radius: 16px;
       border: 1px solid var(--ring);
-      border-radius: 18px;
-      padding: 18px;
+      background: #ffffff;
+      padding: 15px;
     }
 
     .panel h3 {
       margin: 0 0 10px;
-      font-size: 24px;
-      color: #22316a;
+      color: #243476;
+      font-size: 22px;
+      line-height: 1.2;
     }
 
     .checklist {
@@ -180,131 +298,154 @@
       padding-left: 0;
       list-style: none;
       display: grid;
-      gap: 9px;
-      font-size: 16px;
-      line-height: 1.4;
-      color: #2d3652;
+      gap: 8px;
+      color: #2f3a60;
+      font-size: 15px;
+      line-height: 1.36;
     }
 
     .checklist li {
       position: relative;
-      padding-left: 28px;
+      padding-left: 25px;
     }
 
     .checklist li::before {
-      content: "OK";
+      content: "✓";
       position: absolute;
       left: 0;
-      top: 2px;
-      font-size: 11px;
-      line-height: 1;
-      font-weight: 800;
-      color: #fff;
-      background: var(--good);
-      border-radius: 6px;
-      padding: 4px 5px;
-      letter-spacing: 0.03em;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(145deg, #12b981, #0d9d6f);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .addons {
       margin: 0;
       padding-left: 18px;
-      color: #2d3652;
+      color: #2f3a60;
       line-height: 1.5;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .addons li + li {
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .cta {
       border-radius: 18px;
-      padding: 20px 20px 18px;
-      background: linear-gradient(120deg, #e8fbff 0%, #f5ebff 45%, #fff2f8 100%);
-      border: 1px solid #cce6ff;
+      border: 1px solid #cce2ff;
+      background:
+        linear-gradient(120deg, rgba(25, 198, 192, 0.18) 0%, rgba(59, 141, 255, 0.16) 38%, rgba(255, 79, 140, 0.16) 76%, rgba(255, 154, 61, 0.16) 100%);
+      padding: 18px 18px 15px;
     }
 
     .cta h3 {
-      margin: 0 0 8px;
+      margin: 0;
       font-size: 30px;
-      color: #243372;
+      color: #1f2e72;
+      line-height: 1.2;
     }
 
     .contact-grid {
+      margin-top: 12px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
-      margin: 12px 0 8px;
     }
 
     .contact-item {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #d6defa;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #d6e1ff;
       border-radius: 12px;
       padding: 10px;
-      min-height: 88px;
+      min-height: 90px;
     }
 
-    .contact-item .label {
-      margin: 0 0 4px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
+    .contact-label {
+      margin: 0 0 5px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #5c6a95;
-      font-weight: 800;
+      color: #5d6a93;
     }
 
-    .contact-item .value {
+    .contact-value {
       margin: 0;
       font-size: 16px;
-      line-height: 1.4;
+      line-height: 1.35;
       font-weight: 700;
-      color: #1c274f;
-      word-break: break-word;
+      color: #1c2855;
+      overflow-wrap: anywhere;
     }
 
-    .contact-item a {
-      color: #2b3dac;
+    .contact-value a {
+      color: #2e3fa9;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
     }
 
     .service-area {
-      margin: 10px 0 0;
-      color: #39466f;
+      margin: 11px 0 0;
+      color: #33416f;
       font-size: 15px;
       line-height: 1.45;
     }
 
     .closing {
-      margin: 12px 0 0;
-      color: #1d2a5e;
+      margin: 9px 0 0;
+      color: #1c2b66;
       font-size: 22px;
-      font-weight: 900;
       line-height: 1.3;
+      font-weight: 900;
+      text-wrap: balance;
     }
 
     .book-now {
-      margin: 8px 0 0;
-      color: #25347c;
+      margin: 6px 0 0;
       font-size: 18px;
       font-weight: 800;
+      color: #223273;
     }
 
-    @media (max-width: 1080px) {
+    .credits {
+      padding: 0 30px 24px;
+      color: #7180a8;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .credits a {
+      color: #4b5fac;
+    }
+
+    @media (max-width: 1120px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 220px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
       .combo-grid {
         grid-template-columns: 1fr;
       }
-
-      .split {
-        grid-template-columns: 1fr;
-      }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       body {
-        padding: 8px;
+        padding: 9px;
       }
 
       .poster {
@@ -313,13 +454,17 @@
       }
 
       .hero {
-        padding: 24px 20px;
+        padding: 24px 18px 20px;
       }
 
-      .content {
-        padding: 18px 16px 18px;
+      .gallery,
+      .main-content,
+      .credits {
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
+      .gallery-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -345,108 +490,152 @@
 <body>
   <main class="poster">
     <header class="hero">
-      <p class="eyebrow">Party Food Made Easy!</p>
-      <h1>Delicious Catering for Indoor Playground Celebrations</h1>
-      <p>
-        Let BriteMinds take care of the food so you can focus on the fun.
-        Perfect for birthdays, playdates, team parties, and special events.
-      </p>
-    </header>
-
-    <section class="content">
       <section>
-        <h2 class="section-title">Choose Your Party Combo</h2>
-        <div class="combo-grid">
-          <article class="combo-card">
-            <div class="combo-header">
-              <h3 class="combo-name">Combo A</h3>
-              <p class="combo-price">$199</p>
-            </div>
-            <p class="combo-tagline">Great for small gatherings</p>
-            <ul class="combo-list">
-              <li>1 Appetizer Platter</li>
-              <li>1 Fresh Salad</li>
-              <li>2 Large Pizzas</li>
-              <li>1 Baked Pasta</li>
-              <li>1 Assorted Dessert Platter or Fruit Platter</li>
-            </ul>
-          </article>
-
-          <article class="combo-card">
-            <div class="combo-header">
-              <h3 class="combo-name">Combo B</h3>
-              <p class="combo-price">$299</p>
-            </div>
-            <p class="combo-tagline">Our most popular party package</p>
-            <ul class="combo-list">
-              <li>2 Appetizer Platters</li>
-              <li>1 Fresh Salad</li>
-              <li>2 Large Pizzas</li>
-              <li>1 Baked Pasta</li>
-              <li>1 Assorted Sushi Platter</li>
-              <li>1 Assorted Dessert Platter</li>
-              <li>1 Fruit Platter</li>
-            </ul>
-          </article>
-
-          <article class="combo-card">
-            <div class="combo-header">
-              <h3 class="combo-name">Combo C</h3>
-              <p class="combo-price">$399</p>
-            </div>
-            <p class="combo-tagline">Ultimate feast for big celebrations</p>
-            <ul class="combo-list">
-              <li>2 Appetizer Platters</li>
-              <li>2 Fresh Salads</li>
-              <li>3 Large Pizzas</li>
-              <li>2 Baked Pastas</li>
-              <li>1 Assorted Sushi Platter</li>
-              <li>1 Assorted Dessert Platter</li>
-              <li>1 Fruit Platter</li>
-            </ul>
-          </article>
+        <p class="eyebrow">Party Food Made Easy!</p>
+        <h1>Delicious Catering for Indoor Playground Celebrations</h1>
+        <p class="hero-subtitle">
+          Let BriteMinds take care of the food so you can focus on the fun.
+          Perfect for birthdays, playdates, team parties, and special events.
+        </p>
+        <div class="tag-row" aria-label="best for event types">
+          <span class="tag">Birthdays</span>
+          <span class="tag">Playdates</span>
+          <span class="tag">Team Parties</span>
+          <span class="tag">Special Events</span>
         </div>
       </section>
+      <figure class="hero-image">
+        <img
+          src="https://live.staticflickr.com/5483/10816557794_6629b84d59_b.jpg"
+          alt="Birthday party food display table"
+          loading="lazy">
+      </figure>
+    </header>
 
-      <section class="split">
-        <article class="panel">
-          <h3>Why Choose BriteMinds?</h3>
-          <ul class="checklist">
-            <li>Kid-friendly menus everyone loves</li>
-            <li>Fresh, high-quality ingredients</li>
-            <li>Stress-free ordering and delivery</li>
-            <li>Perfect portions for parties of all sizes</li>
-            <li>Customizable options available</li>
-          </ul>
-        </article>
+    <section class="gallery">
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <img
+            src="https://live.staticflickr.com/3627/3357925979_c29ab20ecd_b.jpg"
+            alt="Pizza party tray"
+            loading="lazy">
+          <figcaption>Crowd-favorite pizza for hungry party guests</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img
+            src="https://live.staticflickr.com/7170/6504077233_91ae6fda53_b.jpg"
+            alt="Fresh mixed fruit platter"
+            loading="lazy">
+          <figcaption>Fresh fruit platters with colorful variety</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img
+            src="https://live.staticflickr.com/2822/9791152464_b6a3e208af_b.jpg"
+            alt="Dessert and candy party station"
+            loading="lazy">
+          <figcaption>Themed sweets and desserts kids get excited about</figcaption>
+        </figure>
+      </div>
+    </section>
 
-        <article class="panel">
-          <h3>Add-Ons Available</h3>
-          <ul class="addons">
-            <li>Extra platters</li>
-            <li>Drinks</li>
-            <li>Themed desserts</li>
-            <li>Special dietary requests</li>
-          </ul>
-        </article>
+    <section class="main-content">
+      <section>
+        <h2 class="section-title">Choose Your Party Combo</h2>
+      </section>
+
+      <section class="layout">
+        <div>
+          <div class="combo-grid">
+            <article class="combo combo-a">
+              <div class="combo-header">
+                <h3 class="combo-name">Combo A</h3>
+                <p class="combo-price">$199</p>
+              </div>
+              <p class="combo-tagline">Great for small gatherings</p>
+              <ul>
+                <li>1 Appetizer Platter</li>
+                <li>1 Fresh Salad</li>
+                <li>2 Large Pizzas</li>
+                <li>1 Baked Pasta</li>
+                <li>1 Assorted Dessert Platter or Fruit Platter</li>
+              </ul>
+            </article>
+
+            <article class="combo combo-b">
+              <div class="combo-header">
+                <h3 class="combo-name">Combo B</h3>
+                <p class="combo-price">$299</p>
+              </div>
+              <p class="combo-tagline">Our most popular party package</p>
+              <ul>
+                <li>2 Appetizer Platters</li>
+                <li>1 Fresh Salad</li>
+                <li>2 Large Pizzas</li>
+                <li>1 Baked Pasta</li>
+                <li>1 Assorted Sushi Platter</li>
+                <li>1 Assorted Dessert Platter</li>
+                <li>1 Fruit Platter</li>
+              </ul>
+            </article>
+
+            <article class="combo combo-c">
+              <div class="combo-header">
+                <h3 class="combo-name">Combo C</h3>
+                <p class="combo-price">$399</p>
+              </div>
+              <p class="combo-tagline">Ultimate feast for big celebrations</p>
+              <ul>
+                <li>2 Appetizer Platters</li>
+                <li>2 Fresh Salads</li>
+                <li>3 Large Pizzas</li>
+                <li>2 Baked Pastas</li>
+                <li>1 Assorted Sushi Platter</li>
+                <li>1 Assorted Dessert Platter</li>
+                <li>1 Fruit Platter</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <aside class="stack">
+          <article class="panel">
+            <h3>Why Choose BriteMinds?</h3>
+            <ul class="checklist">
+              <li>Kid-friendly menus everyone loves</li>
+              <li>Fresh, high-quality ingredients</li>
+              <li>Stress-free ordering and delivery</li>
+              <li>Perfect portions for parties of all sizes</li>
+              <li>Customizable options available</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Add-Ons Available</h3>
+            <ul class="addons">
+              <li>Extra platters</li>
+              <li>Drinks</li>
+              <li>Themed desserts</li>
+              <li>Special dietary requests</li>
+            </ul>
+          </article>
+        </aside>
       </section>
 
       <section class="cta">
         <h3>Let's Plan Your Party!</h3>
         <div class="contact-grid">
           <article class="contact-item">
-            <p class="label">Website</p>
-            <p class="value">
+            <p class="contact-label">Website</p>
+            <p class="contact-value">
               <a href="https://www.britemindsgourmet.com">www.britemindsgourmet.com</a>
             </p>
           </article>
           <article class="contact-item">
-            <p class="label">Phone</p>
-            <p class="value">778-223-7006</p>
+            <p class="contact-label">Phone</p>
+            <p class="contact-value">778-223-7006</p>
           </article>
           <article class="contact-item">
-            <p class="label">Email</p>
-            <p class="value">
+            <p class="contact-label">Email</p>
+            <p class="contact-value">
               <a href="mailto:britemindslab@gmail.com">britemindslab@gmail.com</a>
             </p>
           </article>
@@ -458,6 +647,11 @@
         <p class="book-now">Book your party catering today!</p>
       </section>
     </section>
+
+    <footer class="credits">
+      Image references sourced via Openverse web search:
+      <a href="https://api.openverse.org/">api.openverse.org</a> and hosted on Flickr static CDN.
+    </footer>
   </main>
 </body>
 </html>
