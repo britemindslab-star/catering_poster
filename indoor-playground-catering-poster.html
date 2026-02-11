@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BriteMinds Indoor Playground Catering Poster</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap");
+
     :root {
-      --ink: #1a2250;
-      --ink-soft: #49567c;
+      --purple: #92278f;
+      --purple-dark: #6a1c68;
+      --green: #8ac53f;
+      --teal: #2ab0ba;
+      --yellow: #f1c712;
+      --pink: #ed117d;
+      --sky: #00aeef;
+      --emerald: #00a651;
+      --ink: #22284f;
+      --ink-soft: #4f5a81;
       --card: #ffffff;
-      --ring: #d9dff9;
-      --violet: #7047ff;
-      --magenta: #ff4f8c;
-      --orange: #ff9a3d;
-      --teal: #19c6c0;
-      --blue: #3b8dff;
-      --lime: #a3d83f;
-      --shadow: 0 20px 44px rgba(39, 55, 120, 0.14);
+      --ring: #d7dff2;
+      --shadow: 0 22px 46px rgba(39, 52, 113, 0.16);
     }
 
     * {
@@ -25,15 +29,17 @@
 
     body {
       margin: 0;
-      padding: 22px;
+      padding: 20px;
+      font-family: "Nunito", "Segoe UI", Arial, sans-serif;
       color: var(--ink);
-      font-family: "Segoe UI", "Inter", Arial, sans-serif;
       background:
-        radial-gradient(circle at 12% 14%, #ffe9f5 0, transparent 24%),
-        radial-gradient(circle at 85% 12%, #dff8ff 0, transparent 22%),
-        radial-gradient(circle at 16% 80%, #fef2de 0, transparent 24%),
-        radial-gradient(circle at 84% 85%, #e7f8e9 0, transparent 24%),
-        #f4f7ff;
+        radial-gradient(circle at 12% 18%, rgba(237, 17, 125, 0.15), transparent 24%),
+        radial-gradient(circle at 86% 15%, rgba(0, 174, 239, 0.16), transparent 24%),
+        radial-gradient(circle at 15% 84%, rgba(241, 199, 18, 0.2), transparent 23%),
+        radial-gradient(circle at 85% 85%, rgba(138, 197, 63, 0.2), transparent 23%),
+        #f4f8ff;
+      background-size: 100% 100%;
+      animation: paperGlow 16s linear infinite;
     }
 
     .poster {
@@ -41,256 +47,377 @@
       min-height: 297mm;
       margin: 0 auto;
       border-radius: 26px;
+      background: var(--card);
+      border: 1px solid #dce4f9;
       overflow: hidden;
-      background: #ffffff;
-      border: 1px solid #dbe4ff;
       box-shadow: var(--shadow);
+    }
+
+    .top-stripe {
+      height: 10px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--green) 0 52px,
+          var(--teal) 52px 104px,
+          var(--yellow) 104px 156px,
+          var(--pink) 156px 208px,
+          var(--purple) 208px 260px,
+          var(--emerald) 260px 312px,
+          var(--sky) 312px 364px
+        );
+      animation: stripeSlide 7s linear infinite;
     }
 
     .hero {
       position: relative;
-      padding: 34px 34px 30px;
+      padding: 28px 30px 24px;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
+      gap: 16px;
       color: #ffffff;
-      background:
-        linear-gradient(132deg, rgba(112, 71, 255, 0.96), rgba(255, 79, 140, 0.9) 52%, rgba(255, 154, 61, 0.88));
       overflow: hidden;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(146, 39, 143, 0.94) 0%,
+          rgba(237, 17, 125, 0.93) 24%,
+          rgba(241, 199, 18, 0.88) 52%,
+          rgba(0, 174, 239, 0.88) 75%,
+          rgba(42, 176, 186, 0.92) 100%
+        );
+      background-size: 250% 250%;
+      animation: heroShift 14s ease infinite;
+      isolation: isolate;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.22) 2px, transparent 2px);
-      background-size: 26px 26px;
-      opacity: 0.26;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.2) 0 2px, transparent 2px),
+        radial-gradient(circle at 72% 36%, rgba(255, 255, 255, 0.16) 0 2px, transparent 2px);
+      background-size: 30px 30px, 36px 36px;
+      opacity: 0.38;
       pointer-events: none;
+      z-index: 0;
     }
 
     .hero > * {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .eyebrow {
+    .partner-badge {
       margin: 0;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
       background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      font-size: 14px;
-      letter-spacing: 0.08em;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 12px;
       font-weight: 800;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
     }
 
+    .partner-badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.75);
+      animation: pulseDot 1.8s infinite;
+    }
+
     .hero h1 {
-      margin: 14px 0 0;
-      font-size: clamp(29px, 4vw, 44px);
-      line-height: 1.12;
+      margin: 12px 0 0;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.11;
       letter-spacing: 0.01em;
       text-wrap: balance;
+      text-shadow: 0 4px 16px rgba(22, 30, 63, 0.25);
     }
 
     .hero-subtitle {
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       font-size: 18px;
-      line-height: 1.5;
-      max-width: 690px;
+      line-height: 1.46;
+      max-width: 660px;
       color: rgba(255, 255, 255, 0.98);
     }
 
     .tag-row {
-      margin: 16px 0 0;
+      margin: 13px 0 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
 
     .tag {
-      padding: 7px 11px;
+      display: inline-block;
       border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      background: rgba(255, 255, 255, 0.19);
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      color: #ffffff;
+      padding: 6px 10px;
+      animation: floatTag 5.5s ease-in-out infinite;
     }
 
-    .hero-image {
-      align-self: stretch;
-      min-height: 250px;
-      border-radius: 18px;
+    .tag:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .tag:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .tag:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    .hero-media {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 9px;
+      min-height: 255px;
+    }
+
+    .main-shot,
+    .mini-shot {
+      margin: 0;
+      border-radius: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.52);
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.55);
-      box-shadow: 0 14px 28px rgba(15, 24, 62, 0.22);
+      box-shadow: 0 10px 24px rgba(14, 18, 57, 0.25);
     }
 
-    .hero-image img {
+    .main-shot img,
+    .mini-shot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transform: scale(1.02);
     }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      min-height: 90px;
+    }
+
+    .confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .confetti span {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      opacity: 0.8;
+      animation: floatBubble 7s ease-in-out infinite;
+    }
+
+    .confetti span:nth-child(1) { left: 4%; top: 18%; background: var(--yellow); animation-delay: 0s; }
+    .confetti span:nth-child(2) { left: 12%; top: 72%; background: var(--green); animation-delay: 0.8s; }
+    .confetti span:nth-child(3) { left: 33%; top: 8%; background: #fff; animation-delay: 1.7s; }
+    .confetti span:nth-child(4) { left: 54%; top: 86%; background: var(--pink); animation-delay: 1.2s; }
+    .confetti span:nth-child(5) { left: 70%; top: 20%; background: var(--sky); animation-delay: 2.2s; }
+    .confetti span:nth-child(6) { left: 82%; top: 68%; background: var(--teal); animation-delay: 0.4s; }
+    .confetti span:nth-child(7) { left: 92%; top: 12%; background: #fff; animation-delay: 2.8s; }
 
     .gallery {
-      padding: 18px 30px 4px;
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      padding: 12px 28px 4px;
     }
 
     .gallery-card {
-      position: relative;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 12px;
+      align-items: center;
       border-radius: 14px;
-      overflow: hidden;
-      min-height: 120px;
-      border: 1px solid #dce6ff;
+      border: 1px solid #d9e4fb;
+      background: linear-gradient(120deg, #f7fbff, #fcfdff);
+      padding: 10px;
     }
 
     .gallery-card img {
       width: 100%;
-      height: 100%;
+      height: 100px;
       object-fit: cover;
-      display: block;
+      border-radius: 10px;
+      border: 1px solid #dbe6ff;
     }
 
-    .gallery-card figcaption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    .gallery-card p {
       margin: 0;
-      padding: 8px 10px;
-      font-size: 13px;
+      color: #33416f;
+      font-size: 14px;
+      line-height: 1.42;
       font-weight: 700;
-      color: #ffffff;
-      background: linear-gradient(180deg, transparent 0%, rgba(12, 20, 56, 0.78) 70%);
     }
 
     .main-content {
-      padding: 20px 30px 24px;
+      padding: 16px 28px 20px;
       display: grid;
-      gap: 20px;
+      gap: 16px;
     }
 
     .section-title {
       margin: 0;
-      font-size: 31px;
-      line-height: 1.2;
-      color: #1f2c6e;
+      color: #243372;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      font-size: 33px;
+      line-height: 1.12;
       text-wrap: balance;
+    }
+
+    .section-sub {
+      margin: 6px 0 0;
+      color: #4f5a84;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     .layout {
       display: grid;
       grid-template-columns: 1.35fr 0.65fr;
-      gap: 16px;
+      gap: 14px;
       align-items: start;
     }
 
     .combo-grid {
-      margin-top: 14px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
     }
 
     .combo {
-      padding: 14px 14px 12px;
+      position: relative;
+      border-radius: 14px;
       border: 1px solid var(--ring);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
-      box-shadow: 0 8px 18px rgba(42, 61, 133, 0.08);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      padding: 13px 12px 11px;
+      box-shadow: 0 9px 20px rgba(41, 56, 122, 0.1);
+      animation: cardBob 5.5s ease-in-out infinite;
     }
 
-    .combo-a {
-      border-top: 6px solid var(--teal);
+    .combo::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 6px;
+      border-radius: 14px 14px 0 0;
+      background-size: 240% 100%;
+      animation: stripePulse 4s linear infinite;
     }
 
-    .combo-b {
-      border-top: 6px solid var(--orange);
+    .combo-a::before {
+      background-image: linear-gradient(90deg, var(--green), var(--teal), var(--green));
     }
 
-    .combo-c {
-      border-top: 6px solid var(--magenta);
+    .combo-b::before {
+      background-image: linear-gradient(90deg, var(--yellow), #f8a318, var(--yellow));
     }
 
-    .combo-header {
+    .combo-c::before {
+      background-image: linear-gradient(90deg, var(--pink), var(--purple), var(--pink));
+    }
+
+    .combo:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .combo:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    .combo-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     .combo-name {
       margin: 0;
+      color: #283880;
       font-size: 21px;
-      font-weight: 900;
-      letter-spacing: 0.03em;
+      line-height: 1;
       text-transform: uppercase;
-      color: #223175;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      letter-spacing: 0.03em;
     }
 
     .combo-price {
       margin: 0;
-      font-size: 18px;
-      font-weight: 900;
-      color: #21316f;
-      background: #eaf0ff;
       border-radius: 999px;
-      padding: 5px 11px;
+      padding: 5px 10px;
+      font-size: 17px;
+      font-weight: 900;
+      color: #1f2f72;
+      background: #ebf1ff;
       white-space: nowrap;
     }
 
     .combo-tagline {
       margin: 7px 0 8px;
       font-size: 13px;
-      color: #5d6a96;
+      color: #5b6893;
       font-weight: 700;
+      line-height: 1.35;
     }
 
     .combo ul {
       margin: 0;
       padding-left: 17px;
-      color: #303a5e;
+      color: #2f3b62;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.48;
     }
 
     .combo li + li {
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     .stack {
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .panel {
-      border-radius: 16px;
+      border-radius: 14px;
       border: 1px solid var(--ring);
       background: #ffffff;
-      padding: 15px;
+      padding: 14px;
+      box-shadow: 0 7px 17px rgba(42, 55, 123, 0.08);
     }
 
     .panel h3 {
-      margin: 0 0 10px;
-      color: #243476;
+      margin: 0 0 8px;
       font-size: 22px;
+      color: #27377d;
       line-height: 1.2;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
     }
 
     .checklist {
@@ -299,9 +426,10 @@
       list-style: none;
       display: grid;
       gap: 8px;
-      color: #2f3a60;
       font-size: 15px;
-      line-height: 1.36;
+      line-height: 1.35;
+      color: #2f3b62;
+      font-weight: 700;
     }
 
     .checklist li {
@@ -310,128 +438,215 @@
     }
 
     .checklist li::before {
-      content: "✓";
+      content: "OK";
       position: absolute;
       left: 0;
-      top: 0;
+      top: 1px;
       width: 18px;
       height: 18px;
+      border-radius: 999px;
       display: grid;
       place-items: center;
-      border-radius: 999px;
-      background: linear-gradient(145deg, #12b981, #0d9d6f);
+      background: linear-gradient(145deg, var(--emerald), #118648);
       color: #ffffff;
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 900;
+      letter-spacing: 0.03em;
     }
 
     .addons {
       margin: 0;
-      padding-left: 18px;
-      color: #2f3a60;
-      line-height: 1.5;
+      padding-left: 17px;
+      color: #2f3b62;
+      line-height: 1.45;
       font-size: 15px;
+      font-weight: 700;
     }
 
     .addons li + li {
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     .cta {
-      border-radius: 18px;
-      border: 1px solid #cce2ff;
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid #d3e2ff;
+      overflow: hidden;
+      padding: 16px 16px 14px;
       background:
-        linear-gradient(120deg, rgba(25, 198, 192, 0.18) 0%, rgba(59, 141, 255, 0.16) 38%, rgba(255, 79, 140, 0.16) 76%, rgba(255, 154, 61, 0.16) 100%);
-      padding: 18px 18px 15px;
+        linear-gradient(125deg, rgba(138, 197, 63, 0.14), rgba(42, 176, 186, 0.14), rgba(0, 174, 239, 0.14), rgba(237, 17, 125, 0.12), rgba(241, 199, 18, 0.13));
+      background-size: 240% 240%;
+      animation: ctaShift 10s ease infinite;
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -55%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0));
+      transform: skewX(-20deg);
+      animation: ctaShine 4.8s ease-in-out infinite;
+      pointer-events: none;
     }
 
     .cta h3 {
       margin: 0;
       font-size: 30px;
-      color: #1f2e72;
-      line-height: 1.2;
+      line-height: 1.1;
+      color: #233374;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
     }
 
     .contact-grid {
-      margin-top: 12px;
+      margin-top: 11px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
+      gap: 9px;
     }
 
     .contact-item {
+      border-radius: 11px;
+      border: 1px solid #d8e3ff;
       background: rgba(255, 255, 255, 0.92);
-      border: 1px solid #d6e1ff;
-      border-radius: 12px;
       padding: 10px;
-      min-height: 90px;
+      min-height: 87px;
     }
 
     .contact-label {
-      margin: 0 0 5px;
+      margin: 0 0 4px;
       font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #5d6a93;
+      letter-spacing: 0.07em;
+      color: #5e6b95;
+      font-weight: 900;
     }
 
     .contact-value {
       margin: 0;
       font-size: 16px;
-      line-height: 1.35;
-      font-weight: 700;
-      color: #1c2855;
+      line-height: 1.34;
+      color: #1f2d66;
+      font-weight: 800;
       overflow-wrap: anywhere;
     }
 
     .contact-value a {
-      color: #2e3fa9;
+      color: #273eaa;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
     }
 
     .service-area {
-      margin: 11px 0 0;
-      color: #33416f;
+      margin: 10px 0 0;
+      color: #36436f;
       font-size: 15px;
-      line-height: 1.45;
+      line-height: 1.4;
+      font-weight: 700;
     }
 
     .closing {
-      margin: 9px 0 0;
-      color: #1c2b66;
-      font-size: 22px;
-      line-height: 1.3;
-      font-weight: 900;
+      margin: 8px 0 0;
+      font-size: 23px;
+      line-height: 1.25;
+      color: #1d2d67;
+      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
       text-wrap: balance;
     }
 
     .book-now {
-      margin: 6px 0 0;
-      font-size: 18px;
-      font-weight: 800;
-      color: #223273;
+      margin: 8px 0 0;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      color: #ffffff;
+      background: linear-gradient(120deg, var(--purple), var(--pink), var(--sky));
+      background-size: 200% 200%;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 18px rgba(53, 40, 116, 0.25);
+      animation: buttonPop 2.3s ease-in-out infinite;
     }
 
     .credits {
-      padding: 0 30px 24px;
-      color: #7180a8;
+      padding: 0 28px 18px;
+      color: #7080a8;
       font-size: 11px;
       line-height: 1.4;
+      font-weight: 700;
     }
 
     .credits a {
-      color: #4b5fac;
+      color: #4d62ae;
+    }
+
+    @keyframes stripeSlide {
+      from { background-position: 0 0; }
+      to { background-position: 364px 0; }
+    }
+
+    @keyframes paperGlow {
+      0%, 100% { filter: saturate(1); }
+      50% { filter: saturate(1.06); }
+    }
+
+    @keyframes heroShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatTag {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.75); }
+      70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-10px) scale(1.18); opacity: 0.52; }
+    }
+
+    @keyframes cardBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes stripePulse {
+      from { background-position: 0 0; }
+      to { background-position: 200% 0; }
+    }
+
+    @keyframes ctaShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes ctaShine {
+      0% { left: -55%; }
+      58% { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    @keyframes buttonPop {
+      0%, 100% { transform: scale(1); background-position: 0% 50%; }
+      50% { transform: scale(1.04); background-position: 100% 50%; }
     }
 
     @media (max-width: 1120px) {
       .hero {
         grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        min-height: 220px;
       }
 
       .layout {
@@ -441,11 +656,15 @@
       .combo-grid {
         grid-template-columns: 1fr;
       }
+
+      .hero-media {
+        min-height: auto;
+      }
     }
 
     @media (max-width: 760px) {
       body {
-        padding: 9px;
+        padding: 8px;
       }
 
       .poster {
@@ -454,19 +673,35 @@
       }
 
       .hero {
-        padding: 24px 18px 20px;
+        padding: 22px 14px 18px;
       }
 
       .gallery,
       .main-content,
       .credits {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
-      .gallery-grid,
+      .gallery-card {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card img {
+        height: 135px;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
       }
     }
 
@@ -475,126 +710,131 @@
         margin: 0;
         padding: 0;
         background: #ffffff;
+        animation: none;
       }
 
       .poster {
         width: 210mm;
         min-height: 297mm;
         border-radius: 0;
-        box-shadow: none;
         border: none;
+        box-shadow: none;
+      }
+
+      .top-stripe,
+      .hero,
+      .cta,
+      .combo::before,
+      .book-now {
+        animation: none !important;
       }
     }
   </style>
 </head>
 <body>
   <main class="poster">
+    <div class="top-stripe" aria-hidden="true"></div>
+
     <header class="hero">
+      <div class="confetti" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
       <section>
-        <p class="eyebrow">Party Food Made Easy!</p>
-        <h1>Delicious Catering for Indoor Playground Celebrations</h1>
+        <p class="partner-badge"><span class="dot"></span> Inspired by 365 FunDays color theme</p>
+        <h1>Party Food Made Easy! Delicious Catering for Indoor Playground Celebrations</h1>
         <p class="hero-subtitle">
           Let BriteMinds take care of the food so you can focus on the fun.
           Perfect for birthdays, playdates, team parties, and special events.
         </p>
-        <div class="tag-row" aria-label="best for event types">
+        <div class="tag-row" aria-label="event types">
           <span class="tag">Birthdays</span>
           <span class="tag">Playdates</span>
           <span class="tag">Team Parties</span>
           <span class="tag">Special Events</span>
         </div>
       </section>
-      <figure class="hero-image">
-        <img
-          src="https://live.staticflickr.com/5483/10816557794_6629b84d59_b.jpg"
-          alt="Birthday party food display table"
-          loading="lazy">
-      </figure>
+
+      <section class="hero-media" aria-label="indoor playground and party food visuals">
+        <figure class="main-shot">
+          <img src="https://live.staticflickr.com/3012/2871697045_a3225a595b_b.jpg" alt="Kids enjoying indoor playground space" loading="lazy">
+        </figure>
+        <div class="mini-row">
+          <figure class="mini-shot">
+            <img src="https://live.staticflickr.com/5483/10816557794_6629b84d59_b.jpg" alt="Birthday party buffet table" loading="lazy">
+          </figure>
+          <figure class="mini-shot">
+            <img src="https://live.staticflickr.com/3627/3357925979_c29ab20ecd_b.jpg" alt="Pizza party tray close-up" loading="lazy">
+          </figure>
+        </div>
+      </section>
     </header>
 
     <section class="gallery">
-      <div class="gallery-grid">
-        <figure class="gallery-card">
-          <img
-            src="https://live.staticflickr.com/3627/3357925979_c29ab20ecd_b.jpg"
-            alt="Pizza party tray"
-            loading="lazy">
-          <figcaption>Crowd-favorite pizza for hungry party guests</figcaption>
-        </figure>
-        <figure class="gallery-card">
-          <img
-            src="https://live.staticflickr.com/7170/6504077233_91ae6fda53_b.jpg"
-            alt="Fresh mixed fruit platter"
-            loading="lazy">
-          <figcaption>Fresh fruit platters with colorful variety</figcaption>
-        </figure>
-        <figure class="gallery-card">
-          <img
-            src="https://live.staticflickr.com/2822/9791152464_b6a3e208af_b.jpg"
-            alt="Dessert and candy party station"
-            loading="lazy">
-          <figcaption>Themed sweets and desserts kids get excited about</figcaption>
-        </figure>
-      </div>
+      <article class="gallery-card">
+        <img src="https://live.staticflickr.com/7170/6504077233_91ae6fda53_b.jpg" alt="Fresh fruit platter for events" loading="lazy">
+        <p>
+          Fresh fruit platters, pizza favorites, and colorful party-ready menus that fit indoor playground energy and family celebrations.
+        </p>
+      </article>
     </section>
 
     <section class="main-content">
       <section>
         <h2 class="section-title">Choose Your Party Combo</h2>
+        <p class="section-sub">Flexible portions, kid-friendly variety, and stress-free catering options.</p>
       </section>
 
       <section class="layout">
-        <div>
-          <div class="combo-grid">
-            <article class="combo combo-a">
-              <div class="combo-header">
-                <h3 class="combo-name">Combo A</h3>
-                <p class="combo-price">$199</p>
-              </div>
-              <p class="combo-tagline">Great for small gatherings</p>
-              <ul>
-                <li>1 Appetizer Platter</li>
-                <li>1 Fresh Salad</li>
-                <li>2 Large Pizzas</li>
-                <li>1 Baked Pasta</li>
-                <li>1 Assorted Dessert Platter or Fruit Platter</li>
-              </ul>
-            </article>
+        <div class="combo-grid">
+          <article class="combo combo-a">
+            <div class="combo-head">
+              <h3 class="combo-name">Combo A</h3>
+              <p class="combo-price">$199</p>
+            </div>
+            <p class="combo-tagline">Great for small gatherings</p>
+            <ul>
+              <li>1 Appetizer Platter</li>
+              <li>1 Fresh Salad</li>
+              <li>2 Large Pizzas</li>
+              <li>1 Baked Pasta</li>
+              <li>1 Assorted Dessert Platter or Fruit Platter</li>
+            </ul>
+          </article>
 
-            <article class="combo combo-b">
-              <div class="combo-header">
-                <h3 class="combo-name">Combo B</h3>
-                <p class="combo-price">$299</p>
-              </div>
-              <p class="combo-tagline">Our most popular party package</p>
-              <ul>
-                <li>2 Appetizer Platters</li>
-                <li>1 Fresh Salad</li>
-                <li>2 Large Pizzas</li>
-                <li>1 Baked Pasta</li>
-                <li>1 Assorted Sushi Platter</li>
-                <li>1 Assorted Dessert Platter</li>
-                <li>1 Fruit Platter</li>
-              </ul>
-            </article>
+          <article class="combo combo-b">
+            <div class="combo-head">
+              <h3 class="combo-name">Combo B</h3>
+              <p class="combo-price">$299</p>
+            </div>
+            <p class="combo-tagline">Our most popular party package</p>
+            <ul>
+              <li>2 Appetizer Platters</li>
+              <li>1 Fresh Salad</li>
+              <li>2 Large Pizzas</li>
+              <li>1 Baked Pasta</li>
+              <li>1 Assorted Sushi Platter</li>
+              <li>1 Assorted Dessert Platter</li>
+              <li>1 Fruit Platter</li>
+            </ul>
+          </article>
 
-            <article class="combo combo-c">
-              <div class="combo-header">
-                <h3 class="combo-name">Combo C</h3>
-                <p class="combo-price">$399</p>
-              </div>
-              <p class="combo-tagline">Ultimate feast for big celebrations</p>
-              <ul>
-                <li>2 Appetizer Platters</li>
-                <li>2 Fresh Salads</li>
-                <li>3 Large Pizzas</li>
-                <li>2 Baked Pastas</li>
-                <li>1 Assorted Sushi Platter</li>
-                <li>1 Assorted Dessert Platter</li>
-                <li>1 Fruit Platter</li>
-              </ul>
-            </article>
-          </div>
+          <article class="combo combo-c">
+            <div class="combo-head">
+              <h3 class="combo-name">Combo C</h3>
+              <p class="combo-price">$399</p>
+            </div>
+            <p class="combo-tagline">Ultimate feast for big celebrations</p>
+            <ul>
+              <li>2 Appetizer Platters</li>
+              <li>2 Fresh Salads</li>
+              <li>3 Large Pizzas</li>
+              <li>2 Baked Pastas</li>
+              <li>1 Assorted Sushi Platter</li>
+              <li>1 Assorted Dessert Platter</li>
+              <li>1 Fruit Platter</li>
+            </ul>
+          </article>
         </div>
 
         <aside class="stack">
@@ -608,6 +848,7 @@
               <li>Customizable options available</li>
             </ul>
           </article>
+
           <article class="panel">
             <h3>Add-Ons Available</h3>
             <ul class="addons">
@@ -644,13 +885,13 @@
           Serving indoor playgrounds and family events across the community.
         </p>
         <p class="closing">Great Food = Happier Kids + Easier Parents!</p>
-        <p class="book-now">Book your party catering today!</p>
+        <p class="book-now">Book Your Party Catering Today</p>
       </section>
     </section>
 
     <footer class="credits">
-      Image references sourced via Openverse web search:
-      <a href="https://api.openverse.org/">api.openverse.org</a> and hosted on Flickr static CDN.
+      Theme direction referenced from https://365fundays.ca/en/ palette and typography style.
+      Images sourced via Openverse search API and served from Flickr static CDN.
     </footer>
   </main>
 </body>
