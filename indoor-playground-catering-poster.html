@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BriteMinds Indoor Playground Catering Poster</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
 
     :root {
-      --purple: #92278f;
-      --purple-dark: #6a1c68;
-      --green: #8ac53f;
-      --teal: #2ab0ba;
-      --yellow: #f1c712;
-      --pink: #ed117d;
-      --sky: #00aeef;
-      --emerald: #00a651;
-      --ink: #22284f;
-      --ink-soft: #4f5a81;
+      --olive: #6c7856;
+      --olive-deep: #4d563d;
+      --accent-red: #df3336;
+      --accent-red-deep: #9c2426;
+      --ink: #151414;
+      --ink-soft: #525150;
+      --cream: #fffdf6;
+      --paper: #f7f4ec;
       --card: #ffffff;
-      --ring: #d7dff2;
-      --shadow: 0 22px 46px rgba(39, 52, 113, 0.16);
+      --ring: #e7e2d8;
+      --shadow: 0 16px 34px rgba(41, 36, 30, 0.08);
+      --display-font: "Avenir Next", "Helvetica Neue", "Nunito", Arial, sans-serif;
+      --body-font: "Nunito", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
     }
 
     * {
@@ -30,78 +30,48 @@
     body {
       margin: 0;
       padding: 20px;
-      font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+      font-family: var(--body-font);
       color: var(--ink);
       background:
-        radial-gradient(circle at 12% 18%, rgba(237, 17, 125, 0.15), transparent 24%),
-        radial-gradient(circle at 86% 15%, rgba(0, 174, 239, 0.16), transparent 24%),
-        radial-gradient(circle at 15% 84%, rgba(241, 199, 18, 0.2), transparent 23%),
-        radial-gradient(circle at 85% 85%, rgba(138, 197, 63, 0.2), transparent 23%),
-        #f4f8ff;
+        radial-gradient(circle at 15% 15%, rgba(223, 51, 54, 0.09), transparent 23%),
+        radial-gradient(circle at 85% 85%, rgba(108, 120, 86, 0.11), transparent 24%),
+        var(--paper);
       background-size: 100% 100%;
-      animation: paperGlow 16s linear infinite;
+      animation: none;
     }
 
     .poster {
       width: min(210mm, 96vw);
       min-height: 297mm;
       margin: 0 auto;
-      border-radius: 26px;
+      border-radius: 20px;
       background: var(--card);
-      border: 1px solid #dce4f9;
+      border: 1px solid var(--ring);
       overflow: hidden;
       box-shadow: var(--shadow);
     }
 
     .top-stripe {
-      height: 10px;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          var(--green) 0 52px,
-          var(--teal) 52px 104px,
-          var(--yellow) 104px 156px,
-          var(--pink) 156px 208px,
-          var(--purple) 208px 260px,
-          var(--emerald) 260px 312px,
-          var(--sky) 312px 364px
-        );
-      animation: stripeSlide 7s linear infinite;
+      height: 8px;
+      background: linear-gradient(90deg, var(--olive), #8a9673 55%, var(--accent-red) 100%);
+      animation: none;
     }
 
     .hero {
       position: relative;
-      padding: 28px 30px 24px;
+      padding: 28px 30px 22px;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      color: #ffffff;
+      gap: 18px;
+      color: var(--ink);
       overflow: hidden;
-      background:
-        linear-gradient(
-          120deg,
-          rgba(146, 39, 143, 0.94) 0%,
-          rgba(237, 17, 125, 0.93) 24%,
-          rgba(241, 199, 18, 0.88) 52%,
-          rgba(0, 174, 239, 0.88) 75%,
-          rgba(42, 176, 186, 0.92) 100%
-        );
-      background-size: 250% 250%;
-      animation: heroShift 14s ease infinite;
+      background: var(--cream);
+      animation: none;
       isolation: isolate;
     }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.2) 0 2px, transparent 2px),
-        radial-gradient(circle at 72% 36%, rgba(255, 255, 255, 0.16) 0 2px, transparent 2px);
-      background-size: 30px 30px, 36px 36px;
-      opacity: 0.38;
-      pointer-events: none;
-      z-index: 0;
+      content: none;
     }
 
     .hero > * {
@@ -114,14 +84,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(108, 120, 86, 0.12);
+      border: 1px solid rgba(108, 120, 86, 0.35);
       border-radius: 999px;
       padding: 8px 13px;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.07em;
       text-transform: uppercase;
+      color: var(--olive-deep);
     }
 
     .hero-brand-row {
@@ -136,9 +107,9 @@
       width: 110px;
       aspect-ratio: 1 / 1;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.52);
-      box-shadow: 0 8px 18px rgba(23, 35, 86, 0.2);
+      background: #ffffff;
+      border: 1px solid #ddd6c8;
+      box-shadow: 0 6px 16px rgba(35, 29, 20, 0.12);
       padding: 3px;
       display: grid;
       place-items: center;
@@ -167,27 +138,28 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: #fff;
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.75);
-      animation: pulseDot 1.8s infinite;
+      background: var(--accent-red);
+      box-shadow: none;
+      animation: none;
     }
 
     .hero h1 {
       margin: 12px 0 0;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
-      font-size: clamp(31px, 4vw, 46px);
-      line-height: 1.11;
+      font-family: var(--display-font);
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.16;
       letter-spacing: 0.01em;
       text-wrap: balance;
-      text-shadow: 0 4px 16px rgba(22, 30, 63, 0.25);
+      color: var(--ink);
+      text-shadow: none;
     }
 
     .hero-subtitle {
       margin: 12px 0 0;
-      font-size: 18px;
-      line-height: 1.46;
+      font-size: 17px;
+      line-height: 1.48;
       max-width: 660px;
-      color: rgba(255, 255, 255, 0.98);
+      color: var(--ink-soft);
     }
 
     .tag-row {
@@ -200,15 +172,15 @@
     .tag {
       display: inline-block;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      background: rgba(255, 255, 255, 0.18);
-      color: #ffffff;
+      border: 1px solid rgba(108, 120, 86, 0.35);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--olive-deep);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 6px 10px;
-      animation: floatTag 5.5s ease-in-out infinite;
+      animation: none;
     }
 
     .tag:nth-child(2) {
@@ -233,10 +205,10 @@
     .main-shot,
     .mini-shot {
       margin: 0;
-      border-radius: 14px;
-      border: 2px solid rgba(255, 255, 255, 0.52);
+      border-radius: 12px;
+      border: 1px solid #ddd6c8;
       overflow: hidden;
-      box-shadow: 0 10px 24px rgba(14, 18, 57, 0.25);
+      box-shadow: 0 8px 18px rgba(35, 29, 20, 0.12);
     }
 
     .main-shot img,
@@ -256,11 +228,7 @@
     }
 
     .confetti {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
+      display: none;
     }
 
     .confetti span {
@@ -272,16 +240,16 @@
       animation: floatBubble 7s ease-in-out infinite;
     }
 
-    .confetti span:nth-child(1) { left: 4%; top: 18%; background: var(--yellow); animation-delay: 0s; }
-    .confetti span:nth-child(2) { left: 12%; top: 72%; background: var(--green); animation-delay: 0.8s; }
+    .confetti span:nth-child(1) { left: 4%; top: 18%; background: #e0cab1; animation-delay: 0s; }
+    .confetti span:nth-child(2) { left: 12%; top: 72%; background: var(--olive); animation-delay: 0.8s; }
     .confetti span:nth-child(3) { left: 33%; top: 8%; background: #fff; animation-delay: 1.7s; }
-    .confetti span:nth-child(4) { left: 54%; top: 86%; background: var(--pink); animation-delay: 1.2s; }
-    .confetti span:nth-child(5) { left: 70%; top: 20%; background: var(--sky); animation-delay: 2.2s; }
-    .confetti span:nth-child(6) { left: 82%; top: 68%; background: var(--teal); animation-delay: 0.4s; }
+    .confetti span:nth-child(4) { left: 54%; top: 86%; background: var(--accent-red); animation-delay: 1.2s; }
+    .confetti span:nth-child(5) { left: 70%; top: 20%; background: #b8b09e; animation-delay: 2.2s; }
+    .confetti span:nth-child(6) { left: 82%; top: 68%; background: var(--olive-deep); animation-delay: 0.4s; }
     .confetti span:nth-child(7) { left: 92%; top: 12%; background: #fff; animation-delay: 2.8s; }
 
     .gallery {
-      padding: 12px 28px 4px;
+      padding: 12px 28px 6px;
     }
 
     .gallery-card {
@@ -291,8 +259,8 @@
       gap: 12px;
       align-items: center;
       border-radius: 14px;
-      border: 1px solid #d9e4fb;
-      background: linear-gradient(120deg, #f7fbff, #fcfdff);
+      border: 1px solid var(--ring);
+      background: #fffdf8;
       padding: 10px;
     }
 
@@ -301,12 +269,12 @@
       height: 100px;
       object-fit: cover;
       border-radius: 10px;
-      border: 1px solid #dbe6ff;
+      border: 1px solid #e3dccf;
     }
 
     .gallery-card p {
       margin: 0;
-      color: #33416f;
+      color: #4b4a48;
       font-size: 14px;
       line-height: 1.42;
       font-weight: 700;
@@ -320,16 +288,16 @@
 
     .section-title {
       margin: 0;
-      color: #243372;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
-      font-size: 33px;
+      color: var(--ink);
+      font-family: var(--display-font);
+      font-size: 32px;
       line-height: 1.12;
       text-wrap: balance;
     }
 
     .section-sub {
       margin: 6px 0 0;
-      color: #4f5a84;
+      color: #66625a;
       font-size: 15px;
       font-weight: 700;
     }
@@ -344,10 +312,10 @@
       position: relative;
       border-radius: 14px;
       border: 1px solid var(--ring);
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      background: #ffffff;
       padding: 13px 12px 11px;
-      box-shadow: 0 9px 20px rgba(41, 56, 122, 0.1);
-      animation: cardBob 5.5s ease-in-out infinite;
+      box-shadow: 0 8px 16px rgba(35, 29, 20, 0.08);
+      animation: none;
     }
 
     .combo::before {
@@ -359,19 +327,19 @@
       height: 6px;
       border-radius: 14px 14px 0 0;
       background-size: 240% 100%;
-      animation: stripePulse 4s linear infinite;
+      animation: none;
     }
 
     .combo-a::before {
-      background-image: linear-gradient(90deg, var(--green), var(--teal), var(--green));
+      background-image: linear-gradient(90deg, var(--olive), #8a9673, var(--olive));
     }
 
     .combo-b::before {
-      background-image: linear-gradient(90deg, var(--yellow), #f8a318, var(--yellow));
+      background-image: linear-gradient(90deg, #a08f72, #c8b59a, #a08f72);
     }
 
     .combo-c::before {
-      background-image: linear-gradient(90deg, var(--pink), var(--purple), var(--pink));
+      background-image: linear-gradient(90deg, var(--accent-red), #e96c6f, var(--accent-red));
     }
 
     .combo:nth-child(2) {
@@ -392,11 +360,11 @@
 
     .combo-name {
       margin: 0;
-      color: #283880;
+      color: #2f2d2b;
       font-size: 21px;
       line-height: 1;
       text-transform: uppercase;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      font-family: var(--display-font);
       letter-spacing: 0.03em;
     }
 
@@ -406,15 +374,15 @@
       padding: 5px 10px;
       font-size: 17px;
       font-weight: 900;
-      color: #1f2f72;
-      background: #ebf1ff;
+      color: #4d563d;
+      background: #f2f4ec;
       white-space: nowrap;
     }
 
     .combo-tagline {
       margin: 7px 0 8px;
       font-size: 13px;
-      color: #5b6893;
+      color: #6b6965;
       font-weight: 700;
       line-height: 1.35;
     }
@@ -422,7 +390,7 @@
     .combo ul {
       margin: 0;
       padding-left: 17px;
-      color: #2f3b62;
+      color: #403f3d;
       font-size: 14px;
       line-height: 1.48;
     }
@@ -437,18 +405,18 @@
       gap: 14px;
       align-items: center;
       border-radius: 14px;
-      border: 1px solid #d8e3ff;
-      background: linear-gradient(125deg, rgba(42, 176, 186, 0.14), rgba(0, 174, 239, 0.14), rgba(138, 197, 63, 0.14));
+      border: 1px solid var(--ring);
+      background: #fcf9f2;
       padding: 12px 13px;
-      box-shadow: 0 7px 16px rgba(42, 55, 123, 0.07);
+      box-shadow: 0 7px 16px rgba(35, 29, 20, 0.05);
     }
 
     .addons-strip h3 {
       margin: 0;
       font-size: clamp(17px, 2.1vw, 22px);
-      color: #233478;
+      color: #30302f;
       line-height: 1.15;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      font-family: var(--display-font);
       white-space: nowrap;
       text-align: center;
       min-width: max-content;
@@ -466,37 +434,37 @@
     .addon-pills li {
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid #d4defb;
-      background: rgba(255, 255, 255, 0.88);
-      color: #2b3a71;
+      border: 1px solid #ddd7ca;
+      background: #ffffff;
+      color: #4a4947;
       font-size: 14px;
       font-weight: 800;
       line-height: 1.2;
     }
 
     .addon-pills li:nth-child(1) {
-      border-color: rgba(138, 197, 63, 0.5);
+      border-color: rgba(108, 120, 86, 0.45);
     }
 
     .addon-pills li:nth-child(2) {
-      border-color: rgba(0, 174, 239, 0.5);
+      border-color: rgba(160, 143, 114, 0.45);
     }
 
     .addon-pills li:nth-child(3) {
-      border-color: rgba(237, 17, 125, 0.5);
+      border-color: rgba(223, 51, 54, 0.42);
     }
 
     .addon-pills li:nth-child(4) {
-      border-color: rgba(146, 39, 143, 0.5);
+      border-color: rgba(108, 120, 86, 0.42);
     }
 
     .cta {
       position: relative;
       border-radius: 14px;
-      border: 1px solid #d3e2ff;
+      border: 1px solid var(--ring);
       overflow: hidden;
       padding: 16px 16px 14px;
-      background: #ffffff;
+      background: #fffdfa;
       animation: none;
     }
 
@@ -506,10 +474,10 @@
 
     .cta h3 {
       margin: 0;
-      font-size: 28px;
+      font-size: 27px;
       line-height: 1.1;
-      color: #233374;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      color: var(--ink);
+      font-family: var(--display-font);
     }
 
     .contact-list {
@@ -525,7 +493,7 @@
       flex-wrap: wrap;
       align-items: baseline;
       gap: 5px 9px;
-      border-bottom: 1px dashed #d8e3ff;
+      border-bottom: 1px dashed #d9d1c2;
     }
 
     .contact-row:last-child {
@@ -537,7 +505,7 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.07em;
-      color: #5e6b95;
+      color: #726d64;
       font-weight: 900;
     }
 
@@ -545,20 +513,20 @@
       margin: 0;
       font-size: 16px;
       line-height: 1.34;
-      color: #1f2d66;
+      color: #2a2a29;
       font-weight: 800;
       overflow-wrap: anywhere;
     }
 
     .contact-link {
-      color: #273eaa;
+      color: var(--accent-red-deep);
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
     }
 
     .service-area {
       margin: 10px 0 0;
-      color: #36436f;
+      color: #595650;
       font-size: 15px;
       line-height: 1.4;
       font-weight: 700;
@@ -566,10 +534,10 @@
 
     .closing {
       margin: 8px 0 0;
-      font-size: 23px;
+      font-size: 22px;
       line-height: 1.25;
-      color: #1d2d67;
-      font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      color: #2e2d2b;
+      font-family: var(--display-font);
       text-wrap: balance;
     }
 
@@ -578,9 +546,9 @@
       display: inline-block;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(39, 62, 170, 0.15);
+      border: 1px solid rgba(108, 120, 86, 0.28);
       color: #ffffff;
-      background: linear-gradient(120deg, var(--purple), var(--pink), var(--sky));
+      background: linear-gradient(120deg, var(--olive), #7a8662, var(--olive-deep));
       background-size: 200% 200%;
       font-size: 16px;
       font-weight: 900;
@@ -592,14 +560,14 @@
 
     .credits {
       padding: 0 28px 18px;
-      color: #7080a8;
+      color: #7a756a;
       font-size: 11px;
       line-height: 1.4;
       font-weight: 700;
     }
 
     .credits a {
-      color: #4d62ae;
+      color: var(--accent-red-deep);
     }
 
     @keyframes stripeSlide {
@@ -792,7 +760,7 @@
               <text x="110" y="156" text-anchor="middle" class="logo-b">B</text>
             </svg>
           </figure>
-          <p class="partner-badge"><span class="dot"></span> Inspired by 365 FunDays color theme</p>
+          <p class="partner-badge"><span class="dot"></span> Layout inspired by BriteMinds Gourmet</p>
         </div>
         <h1>Party Food Made Easy! Delicious Catering for Indoor Playground Celebrations</h1>
         <p class="hero-subtitle">
@@ -923,7 +891,7 @@
     </section>
 
     <footer class="credits">
-      Theme direction referenced from https://365fundays.ca/en/ palette and typography style.
+      Theme direction inspired by https://www.britemindsgourmet.com/ clean editorial layout.
       Images sourced via Openverse search API and served from Flickr static CDN.
     </footer>
   </main>
