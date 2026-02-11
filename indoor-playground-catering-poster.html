@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BriteMinds Indoor Playground Catering Poster</title>
+  <style>
+    :root {
+      --bg: #f4f8ff;
+      --card: #ffffff;
+      --ink: #1b2440;
+      --muted: #546081;
+      --primary: #7c4dff;
+      --secondary: #ff6f91;
+      --accent: #00b8d9;
+      --ring: #dbe5ff;
+      --good: #13a67a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Segoe UI", "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, #ffe5f2 0%, transparent 32%),
+        radial-gradient(circle at 90% 30%, #dff7ff 0%, transparent 28%),
+        radial-gradient(circle at 20% 85%, #e8f6df 0%, transparent 30%),
+        var(--bg);
+    }
+
+    .poster {
+      width: min(210mm, 96vw);
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--ring);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 22px 50px rgba(24, 42, 98, 0.14);
+    }
+
+    .hero {
+      padding: 36px 40px 34px;
+      background:
+        linear-gradient(120deg, rgba(124, 77, 255, 0.95), rgba(255, 111, 145, 0.9)),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.09),
+          rgba(255, 255, 255, 0.09) 8px,
+          rgba(255, 255, 255, 0) 8px,
+          rgba(255, 255, 255, 0) 18px
+        );
+      color: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.14;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 950px;
+      opacity: 0.98;
+    }
+
+    .content {
+      padding: 32px 32px 28px;
+      display: grid;
+      gap: 26px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 30px;
+      color: #22316a;
+      line-height: 1.2;
+    }
+
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .combo-card {
+      border: 1px solid var(--ring);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .combo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .combo-name {
+      margin: 0;
+      font-size: 22px;
+      color: #27356f;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .combo-price {
+      margin: 0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #edf0ff;
+      color: #2d3994;
+      font-size: 18px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .combo-tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .combo-list {
+      margin: 2px 0 0;
+      padding-left: 18px;
+      color: #2d3652;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .combo-list li + li {
+      margin-top: 5px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid var(--ring);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #22316a;
+    }
+
+    .checklist {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #2d3652;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .checklist li::before {
+      content: "OK";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      color: #fff;
+      background: var(--good);
+      border-radius: 6px;
+      padding: 4px 5px;
+      letter-spacing: 0.03em;
+    }
+
+    .addons {
+      margin: 0;
+      padding-left: 18px;
+      color: #2d3652;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    .addons li + li {
+      margin-top: 6px;
+    }
+
+    .cta {
+      border-radius: 18px;
+      padding: 20px 20px 18px;
+      background: linear-gradient(120deg, #e8fbff 0%, #f5ebff 45%, #fff2f8 100%);
+      border: 1px solid #cce6ff;
+    }
+
+    .cta h3 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      color: #243372;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0 8px;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #d6defa;
+      border-radius: 12px;
+      padding: 10px;
+      min-height: 88px;
+    }
+
+    .contact-item .label {
+      margin: 0 0 4px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #5c6a95;
+      font-weight: 800;
+    }
+
+    .contact-item .value {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #1c274f;
+      word-break: break-word;
+    }
+
+    .contact-item a {
+      color: #2b3dac;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
+    .service-area {
+      margin: 10px 0 0;
+      color: #39466f;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .closing {
+      margin: 12px 0 0;
+      color: #1d2a5e;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .book-now {
+      margin: 8px 0 0;
+      color: #25347c;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 1080px) {
+      .combo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 8px;
+      }
+
+      .poster {
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .hero {
+        padding: 24px 20px;
+      }
+
+      .content {
+        padding: 18px 16px 18px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+      }
+
+      .poster {
+        width: 210mm;
+        min-height: 297mm;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <header class="hero">
+      <p class="eyebrow">Party Food Made Easy!</p>
+      <h1>Delicious Catering for Indoor Playground Celebrations</h1>
+      <p>
+        Let BriteMinds take care of the food so you can focus on the fun.
+        Perfect for birthdays, playdates, team parties, and special events.
+      </p>
+    </header>
+
+    <section class="content">
+      <section>
+        <h2 class="section-title">Choose Your Party Combo</h2>
+        <div class="combo-grid">
+          <article class="combo-card">
+            <div class="combo-header">
+              <h3 class="combo-name">Combo A</h3>
+              <p class="combo-price">$199</p>
+            </div>
+            <p class="combo-tagline">Great for small gatherings</p>
+            <ul class="combo-list">
+              <li>1 Appetizer Platter</li>
+              <li>1 Fresh Salad</li>
+              <li>2 Large Pizzas</li>
+              <li>1 Baked Pasta</li>
+              <li>1 Assorted Dessert Platter or Fruit Platter</li>
+            </ul>
+          </article>
+
+          <article class="combo-card">
+            <div class="combo-header">
+              <h3 class="combo-name">Combo B</h3>
+              <p class="combo-price">$299</p>
+            </div>
+            <p class="combo-tagline">Our most popular party package</p>
+            <ul class="combo-list">
+              <li>2 Appetizer Platters</li>
+              <li>1 Fresh Salad</li>
+              <li>2 Large Pizzas</li>
+              <li>1 Baked Pasta</li>
+              <li>1 Assorted Sushi Platter</li>
+              <li>1 Assorted Dessert Platter</li>
+              <li>1 Fruit Platter</li>
+            </ul>
+          </article>
+
+          <article class="combo-card">
+            <div class="combo-header">
+              <h3 class="combo-name">Combo C</h3>
+              <p class="combo-price">$399</p>
+            </div>
+            <p class="combo-tagline">Ultimate feast for big celebrations</p>
+            <ul class="combo-list">
+              <li>2 Appetizer Platters</li>
+              <li>2 Fresh Salads</li>
+              <li>3 Large Pizzas</li>
+              <li>2 Baked Pastas</li>
+              <li>1 Assorted Sushi Platter</li>
+              <li>1 Assorted Dessert Platter</li>
+              <li>1 Fruit Platter</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="split">
+        <article class="panel">
+          <h3>Why Choose BriteMinds?</h3>
+          <ul class="checklist">
+            <li>Kid-friendly menus everyone loves</li>
+            <li>Fresh, high-quality ingredients</li>
+            <li>Stress-free ordering and delivery</li>
+            <li>Perfect portions for parties of all sizes</li>
+            <li>Customizable options available</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>Add-Ons Available</h3>
+          <ul class="addons">
+            <li>Extra platters</li>
+            <li>Drinks</li>
+            <li>Themed desserts</li>
+            <li>Special dietary requests</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="cta">
+        <h3>Let's Plan Your Party!</h3>
+        <div class="contact-grid">
+          <article class="contact-item">
+            <p class="label">Website</p>
+            <p class="value">
+              <a href="https://www.britemindsgourmet.com">www.britemindsgourmet.com</a>
+            </p>
+          </article>
+          <article class="contact-item">
+            <p class="label">Phone</p>
+            <p class="value">778-223-7006</p>
+          </article>
+          <article class="contact-item">
+            <p class="label">Email</p>
+            <p class="value">
+              <a href="mailto:britemindslab@gmail.com">britemindslab@gmail.com</a>
+            </p>
+          </article>
+        </div>
+        <p class="service-area">
+          Serving indoor playgrounds and family events across the community.
+        </p>
+        <p class="closing">Great Food = Happier Kids + Easier Parents!</p>
+        <p class="book-now">Book your party catering today!</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
