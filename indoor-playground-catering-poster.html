@@ -407,16 +407,18 @@
       gap: 14px;
       align-items: center;
       border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      background: var(--hero-gradient);
+      border: 2px solid transparent;
+      background:
+        linear-gradient(transparent, transparent) padding-box,
+        linear-gradient(90deg, #3ea73a, #ff8a3d, #ff4a4f) border-box;
       padding: 12px 13px;
-      box-shadow: 0 7px 16px rgba(34, 45, 98, 0.12);
+      box-shadow: 0 6px 14px rgba(34, 45, 98, 0.08);
     }
 
     .addons-strip h3 {
       margin: 0;
       font-size: clamp(30px, 4vw, 42px);
-      color: #ffffff;
+      color: #253cc1;
       line-height: 1.16;
       letter-spacing: 0.01em;
       font-family: var(--display-font);
@@ -441,9 +443,9 @@
     .addon-pills li {
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.16);
-      color: #ffffff;
+      border: 1px solid #d4ddfc;
+      background: transparent;
+      color: #2b3f86;
       font-size: 14px;
       font-weight: 800;
       line-height: 1.2;
@@ -452,19 +454,19 @@
     }
 
     .addon-pills li:nth-child(1) {
-      border-color: rgba(255, 255, 255, 0.45);
+      border-color: rgba(62, 167, 58, 0.45);
     }
 
     .addon-pills li:nth-child(2) {
-      border-color: rgba(255, 255, 255, 0.45);
+      border-color: rgba(255, 138, 61, 0.45);
     }
 
     .addon-pills li:nth-child(3) {
-      border-color: rgba(255, 255, 255, 0.45);
+      border-color: rgba(255, 74, 79, 0.45);
     }
 
     .addon-pills li:nth-child(4) {
-      border-color: rgba(255, 255, 255, 0.45);
+      border-color: rgba(43, 125, 255, 0.35);
     }
 
     .cta {
