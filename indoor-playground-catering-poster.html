@@ -295,13 +295,6 @@
       font-weight: 700;
     }
 
-    .layout {
-      display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 14px;
-      align-items: start;
-    }
-
     .combo-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -399,72 +392,61 @@
       margin-top: 3px;
     }
 
-    .stack {
+    .addons-strip {
       display: grid;
-      gap: 10px;
-    }
-
-    .panel {
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
       border-radius: 14px;
-      border: 1px solid var(--ring);
-      background: #ffffff;
-      padding: 14px;
-      box-shadow: 0 7px 17px rgba(42, 55, 123, 0.08);
+      border: 1px solid #d8e3ff;
+      background: linear-gradient(125deg, rgba(42, 176, 186, 0.14), rgba(0, 174, 239, 0.14), rgba(138, 197, 63, 0.14));
+      padding: 12px 13px;
+      box-shadow: 0 7px 16px rgba(42, 55, 123, 0.07);
     }
 
-    .panel h3 {
-      margin: 0 0 8px;
+    .addons-strip h3 {
+      margin: 0;
       font-size: 22px;
-      color: #27377d;
-      line-height: 1.2;
+      color: #233478;
+      line-height: 1.15;
       font-family: "Fredoka One", "Nunito", Arial, sans-serif;
+      white-space: nowrap;
     }
 
-    .checklist {
+    .addon-pills {
       margin: 0;
-      padding-left: 0;
+      padding: 0;
       list-style: none;
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
-      font-size: 15px;
-      line-height: 1.35;
-      color: #2f3b62;
-      font-weight: 700;
     }
 
-    .checklist li {
-      position: relative;
-      padding-left: 25px;
-    }
-
-    .checklist li::before {
-      content: "OK";
-      position: absolute;
-      left: 0;
-      top: 1px;
-      width: 18px;
-      height: 18px;
+    .addon-pills li {
+      padding: 7px 12px;
       border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--emerald), #118648);
-      color: #ffffff;
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 0.03em;
+      border: 1px solid #d4defb;
+      background: rgba(255, 255, 255, 0.88);
+      color: #2b3a71;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
     }
 
-    .addons {
-      margin: 0;
-      padding-left: 17px;
-      color: #2f3b62;
-      line-height: 1.45;
-      font-size: 15px;
-      font-weight: 700;
+    .addon-pills li:nth-child(1) {
+      border-color: rgba(138, 197, 63, 0.5);
     }
 
-    .addons li + li {
-      margin-top: 4px;
+    .addon-pills li:nth-child(2) {
+      border-color: rgba(0, 174, 239, 0.5);
+    }
+
+    .addon-pills li:nth-child(3) {
+      border-color: rgba(237, 17, 125, 0.5);
+    }
+
+    .addon-pills li:nth-child(4) {
+      border-color: rgba(146, 39, 143, 0.5);
     }
 
     .cta {
@@ -649,16 +631,16 @@
         grid-template-columns: 1fr;
       }
 
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
       .combo-grid {
         grid-template-columns: 1fr;
       }
 
       .hero-media {
         min-height: auto;
+      }
+
+      .addons-strip {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -693,6 +675,10 @@
 
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .addon-pills li {
+        font-size: 13px;
       }
     }
 
@@ -785,80 +771,65 @@
         <p class="section-sub">Flexible portions, kid-friendly variety, and stress-free catering options.</p>
       </section>
 
-      <section class="layout">
-        <div class="combo-grid">
-          <article class="combo combo-a">
-            <div class="combo-head">
-              <h3 class="combo-name">Combo A</h3>
-              <p class="combo-price">$199</p>
-            </div>
-            <p class="combo-tagline">Great for small gatherings</p>
-            <ul>
-              <li>1 Appetizer Platter</li>
-              <li>1 Fresh Salad</li>
-              <li>2 Large Pizzas</li>
-              <li>1 Baked Pasta</li>
-              <li>1 Assorted Dessert Platter or Fruit Platter</li>
-            </ul>
-          </article>
+      <section class="combo-grid">
+        <article class="combo combo-a">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo A</h3>
+            <p class="combo-price">$199</p>
+          </div>
+          <p class="combo-tagline">Great for small gatherings</p>
+          <ul>
+            <li>1 Appetizer Platter</li>
+            <li>1 Fresh Salad</li>
+            <li>2 Large Pizzas</li>
+            <li>1 Baked Pasta</li>
+            <li>1 Assorted Dessert Platter or Fruit Platter</li>
+          </ul>
+        </article>
 
-          <article class="combo combo-b">
-            <div class="combo-head">
-              <h3 class="combo-name">Combo B</h3>
-              <p class="combo-price">$299</p>
-            </div>
-            <p class="combo-tagline">Our most popular party package</p>
-            <ul>
-              <li>2 Appetizer Platters</li>
-              <li>1 Fresh Salad</li>
-              <li>2 Large Pizzas</li>
-              <li>1 Baked Pasta</li>
-              <li>1 Assorted Sushi Platter</li>
-              <li>1 Assorted Dessert Platter</li>
-              <li>1 Fruit Platter</li>
-            </ul>
-          </article>
+        <article class="combo combo-b">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo B</h3>
+            <p class="combo-price">$299</p>
+          </div>
+          <p class="combo-tagline">Our most popular party package</p>
+          <ul>
+            <li>2 Appetizer Platters</li>
+            <li>1 Fresh Salad</li>
+            <li>2 Large Pizzas</li>
+            <li>1 Baked Pasta</li>
+            <li>1 Assorted Sushi Platter</li>
+            <li>1 Assorted Dessert Platter</li>
+            <li>1 Fruit Platter</li>
+          </ul>
+        </article>
 
-          <article class="combo combo-c">
-            <div class="combo-head">
-              <h3 class="combo-name">Combo C</h3>
-              <p class="combo-price">$399</p>
-            </div>
-            <p class="combo-tagline">Ultimate feast for big celebrations</p>
-            <ul>
-              <li>2 Appetizer Platters</li>
-              <li>2 Fresh Salads</li>
-              <li>3 Large Pizzas</li>
-              <li>2 Baked Pastas</li>
-              <li>1 Assorted Sushi Platter</li>
-              <li>1 Assorted Dessert Platter</li>
-              <li>1 Fruit Platter</li>
-            </ul>
-          </article>
-        </div>
+        <article class="combo combo-c">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo C</h3>
+            <p class="combo-price">$399</p>
+          </div>
+          <p class="combo-tagline">Ultimate feast for big celebrations</p>
+          <ul>
+            <li>2 Appetizer Platters</li>
+            <li>2 Fresh Salads</li>
+            <li>3 Large Pizzas</li>
+            <li>2 Baked Pastas</li>
+            <li>1 Assorted Sushi Platter</li>
+            <li>1 Assorted Dessert Platter</li>
+            <li>1 Fruit Platter</li>
+          </ul>
+        </article>
+      </section>
 
-        <aside class="stack">
-          <article class="panel">
-            <h3>Why Choose BriteMinds?</h3>
-            <ul class="checklist">
-              <li>Kid-friendly menus everyone loves</li>
-              <li>Fresh, high-quality ingredients</li>
-              <li>Stress-free ordering and delivery</li>
-              <li>Perfect portions for parties of all sizes</li>
-              <li>Customizable options available</li>
-            </ul>
-          </article>
-
-          <article class="panel">
-            <h3>Add-Ons Available</h3>
-            <ul class="addons">
-              <li>Extra platters</li>
-              <li>Drinks</li>
-              <li>Themed desserts</li>
-              <li>Special dietary requests</li>
-            </ul>
-          </article>
-        </aside>
+      <section class="addons-strip" aria-label="available add-ons">
+        <h3>Add-Ons Available</h3>
+        <ul class="addon-pills">
+          <li>Extra platters</li>
+          <li>Drinks</li>
+          <li>Themed desserts</li>
+          <li>Special dietary requests</li>
+        </ul>
       </section>
 
       <section class="cta">
