@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BriteMinds Indoor Playground Catering Poster</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
+
+    :root {
+      --olive: #3ea73a;
+      --olive-deep: #2a7f31;
+      --accent-red: #ff4a4f;
+      --accent-red-deep: #d72f33;
+      --hero-gradient: linear-gradient(125deg, #ff4a4f 0%, #ff8a3d 34%, #3ea73a 68%, #2b7dff 100%);
+      --ink: #1f1f2e;
+      --ink-soft: #4d5172;
+      --cream: #fffdf6;
+      --paper: #f4f7ff;
+      --card: #ffffff;
+      --ring: #d9e2ff;
+      --shadow: 0 16px 34px rgba(34, 45, 98, 0.11);
+      --display-font: "Avenir Next", "Helvetica Neue", "Nunito", Arial, sans-serif;
+      --body-font: "Nunito", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: var(--body-font);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255, 74, 79, 0.15), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(43, 125, 255, 0.14), transparent 24%),
+        radial-gradient(circle at 84% 84%, rgba(62, 167, 58, 0.14), transparent 24%),
+        var(--paper);
+      background-size: 100% 100%;
+      animation: none;
+    }
+
+    .poster {
+      width: min(210mm, 96vw);
+      min-height: 297mm;
+      margin: 0 auto;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--ring);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .top-stripe {
+      height: 8px;
+      background: linear-gradient(90deg, var(--olive), #2b7dff 55%, var(--accent-red) 100%);
+      animation: none;
+    }
+
+    .hero {
+      position: relative;
+      padding: 28px 30px 22px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      color: #ffffff;
+      overflow: hidden;
+      background: var(--hero-gradient);
+      animation: none;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: none;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .company-logo {
+      width: 110px;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #d4ddfc;
+      box-shadow: 0 6px 14px rgba(34, 45, 98, 0.08);
+      padding: 3px;
+      display: grid;
+      place-items: center;
+    }
+
+    .company-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .logo-text {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      fill: #111111;
+    }
+
+    .logo-b {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 122px;
+      fill: #c4ab88;
+    }
+
+    .hero h1 {
+      margin: 12px 0 0;
+      font-family: var(--display-font);
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.16;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+      color: #ffffff;
+      text-shadow: none;
+    }
+
+    .hero-subtitle {
+      margin: 12px 0 0;
+      font-size: 17px;
+      line-height: 1.48;
+      max-width: 660px;
+      color: rgba(255, 255, 255, 0.96);
+    }
+
+    .tag-row {
+      margin: 13px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      animation: none;
+    }
+
+    .tag:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .tag:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .tag:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    .hero-media {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 9px;
+      min-height: 255px;
+    }
+
+    .main-shot,
+    .mini-shot {
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(30, 35, 74, 0.2);
+    }
+
+    .main-shot img,
+    .mini-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      min-height: 90px;
+    }
+
+    .confetti {
+      display: none;
+    }
+
+    .confetti span {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      opacity: 0.8;
+      animation: floatBubble 7s ease-in-out infinite;
+    }
+
+    .confetti span:nth-child(1) { left: 4%; top: 18%; background: #e0cab1; animation-delay: 0s; }
+    .confetti span:nth-child(2) { left: 12%; top: 72%; background: var(--olive); animation-delay: 0.8s; }
+    .confetti span:nth-child(3) { left: 33%; top: 8%; background: #fff; animation-delay: 1.7s; }
+    .confetti span:nth-child(4) { left: 54%; top: 86%; background: var(--accent-red); animation-delay: 1.2s; }
+    .confetti span:nth-child(5) { left: 70%; top: 20%; background: #b8b09e; animation-delay: 2.2s; }
+    .confetti span:nth-child(6) { left: 82%; top: 68%; background: var(--olive-deep); animation-delay: 0.4s; }
+    .confetti span:nth-child(7) { left: 92%; top: 12%; background: #fff; animation-delay: 2.8s; }
+
+    .gallery {
+      padding: 12px 28px 6px;
+    }
+
+    .gallery-card {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 12px;
+      align-items: center;
+      border-radius: 14px;
+      border: 1px solid var(--ring);
+      background: #fffdf8;
+      padding: 10px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #e3dccf;
+    }
+
+    .gallery-card p {
+      margin: 0;
+      color: #4b4a48;
+      font-size: 14px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .main-content {
+      padding: 16px 28px 20px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .section-title {
+      margin: 0;
+      color: #2143c2;
+      font-family: var(--display-font);
+      font-size: 32px;
+      line-height: 1.12;
+      text-wrap: balance;
+    }
+
+    .section-sub {
+      margin: 6px 0 0;
+      color: #4e5a8e;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .combo {
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid #d8e2ff;
+      background: #ffffff;
+      padding: 13px 12px 11px;
+      box-shadow: 0 8px 16px rgba(34, 45, 98, 0.08);
+      animation: none;
+    }
+
+    .combo::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 6px;
+      border-radius: 14px 14px 0 0;
+      background-size: 240% 100%;
+      animation: none;
+    }
+
+    .combo-a::before {
+      background-image: linear-gradient(90deg, #3ea73a, #59bd55, #3ea73a);
+    }
+
+    .combo-b::before {
+      background-image: linear-gradient(90deg, #ff8a3d, #ffae4f, #ff8a3d);
+    }
+
+    .combo-c::before {
+      background-image: linear-gradient(90deg, #ff4a4f, #ff6670, #ff4a4f);
+    }
+
+    .combo:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .combo:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    .combo-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .combo-name {
+      margin: 0;
+      color: #25337f;
+      font-size: 21px;
+      line-height: 1;
+      text-transform: uppercase;
+      font-family: var(--display-font);
+      letter-spacing: 0.03em;
+    }
+
+    .combo-price {
+      margin: 0;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 17px;
+      font-weight: 900;
+      color: #1f4ed2;
+      background: #edf2ff;
+      white-space: nowrap;
+    }
+
+    .combo-tagline {
+      margin: 7px 0 8px;
+      font-size: 13px;
+      color: #5a6697;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .combo ul {
+      margin: 0;
+      padding-left: 17px;
+      color: #333f6e;
+      font-size: 14px;
+      line-height: 1.48;
+    }
+
+    .combo li + li {
+      margin-top: 3px;
+    }
+
+    .addons-strip {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--ring);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      padding: 14px 13px 12px;
+      box-shadow: 0 6px 14px rgba(34, 45, 98, 0.08);
+    }
+
+    .addons-strip::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 6px;
+      border-radius: 14px 14px 0 0;
+      background: linear-gradient(90deg, #3ea73a, #ff8a3d, #ff4a4f, #2b7dff);
+    }
+
+    .addons-strip h3 {
+      margin: 0;
+      font-size: 32px;
+      color: #2143c2;
+      line-height: 1.12;
+      letter-spacing: 0;
+      font-family: var(--display-font);
+      white-space: normal;
+      text-align: left;
+      text-transform: none;
+      min-width: 0;
+    }
+
+    .addon-pills {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .addon-pills li {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #d4ddfc;
+      background: #ffffff;
+      color: #2b3f86;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .addon-pills li:nth-child(1) {
+      border-color: rgba(62, 167, 58, 0.45);
+    }
+
+    .addon-pills li:nth-child(2) {
+      border-color: rgba(255, 138, 61, 0.45);
+    }
+
+    .addon-pills li:nth-child(3) {
+      border-color: rgba(255, 74, 79, 0.45);
+    }
+
+    .addon-pills li:nth-child(4) {
+      border-color: rgba(43, 125, 255, 0.35);
+    }
+
+    .cta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--ring);
+      overflow: hidden;
+      padding: 14px 13px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      box-shadow: 0 6px 14px rgba(34, 45, 98, 0.08);
+      animation: none;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 6px;
+      border-radius: 14px 14px 0 0;
+      background: linear-gradient(90deg, #3ea73a, #ff8a3d, #ff4a4f, #2b7dff);
+    }
+
+    .cta::after {
+      content: none;
+    }
+
+    .cta h3 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      color: #2143c2;
+      font-family: var(--display-font);
+    }
+
+    .cta-intro {
+      margin: 1px 0 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #4e5a8e;
+      font-weight: 700;
+    }
+
+    .contact-capture {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) auto;
+      gap: 14px;
+      align-items: start;
+      width: 100%;
+    }
+
+    .contact-channels {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .channel-card {
+      border-radius: 12px;
+      border: 1px solid #d4ddfc;
+      background: #ffffff;
+      padding: 10px 12px;
+      display: grid;
+      gap: 2px;
+      text-decoration: none;
+      color: #1f2d66;
+      box-shadow: 0 4px 10px rgba(34, 45, 98, 0.05);
+      min-width: 0;
+    }
+
+    .channel-card:focus-visible {
+      outline: 2px solid #ff4a4f;
+      outline-offset: 2px;
+    }
+
+    .channel-card.phone {
+      border-color: rgba(62, 167, 58, 0.55);
+      background: linear-gradient(180deg, #f7fff7 0%, #ffffff 100%);
+    }
+
+    .channel-card.email {
+      border-color: rgba(255, 138, 61, 0.55);
+      background: linear-gradient(180deg, #fffaf4 0%, #ffffff 100%);
+    }
+
+    .channel-card.website {
+      border-color: rgba(43, 125, 255, 0.45);
+      background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+    }
+
+    .channel-label {
+      margin: 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #5e6b95;
+      font-weight: 900;
+    }
+
+    .channel-value {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.23;
+      color: #1f2d66;
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .channel-meta {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.3;
+      color: #5c6795;
+      font-weight: 700;
+    }
+
+    .response-pill {
+      margin: 2px 0 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      border: 1px solid #d8e2ff;
+      padding: 6px 10px;
+      font-size: 12px;
+      line-height: 1.2;
+      color: #435182;
+      background: #f8faff;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .response-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #3ea73a;
+      box-shadow: 0 0 0 3px rgba(62, 167, 58, 0.2);
+      flex: 0 0 auto;
+    }
+
+    .contact-aside {
+      display: grid;
+      gap: 9px;
+      justify-items: end;
+    }
+
+    .plan-logo {
+      margin: 0;
+      justify-self: end;
+      align-self: start;
+    }
+
+    .scan-card {
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid #d4ddfc;
+      background: #ffffff;
+      padding: 7px;
+      width: 124px;
+      box-shadow: 0 5px 12px rgba(34, 45, 98, 0.07);
+      display: grid;
+      gap: 6px;
+    }
+
+    .scan-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #e2e8ff;
+    }
+
+    .scan-card figcaption {
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.25;
+      text-align: center;
+      color: #5b6796;
+      font-weight: 800;
+    }
+
+    @keyframes stripeSlide {
+      from { background-position: 0 0; }
+      to { background-position: 364px 0; }
+    }
+
+    @keyframes paperGlow {
+      0%, 100% { filter: saturate(1); }
+      50% { filter: saturate(1.06); }
+    }
+
+    @keyframes heroShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatTag {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.75); }
+      70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-10px) scale(1.18); opacity: 0.52; }
+    }
+
+    @keyframes cardBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes stripePulse {
+      from { background-position: 0 0; }
+      to { background-position: 200% 0; }
+    }
+
+    @keyframes ctaShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes ctaShine {
+      0% { left: -55%; }
+      58% { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    @keyframes buttonPop {
+      0%, 100% { transform: scale(1); background-position: 0% 50%; }
+      50% { transform: scale(1.04); background-position: 100% 50%; }
+    }
+
+    @media (max-width: 1120px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .combo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media {
+        min-height: auto;
+      }
+
+      .addons-strip h3 {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 8px;
+      }
+
+      .poster {
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .hero {
+        padding: 22px 14px 18px;
+      }
+
+      .company-logo {
+        width: 88px;
+      }
+
+      .gallery,
+      .main-content {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .gallery-card {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card img {
+        height: 135px;
+      }
+
+      .contact-capture {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-aside {
+        grid-template-columns: auto auto;
+        justify-content: flex-start;
+        justify-items: start;
+      }
+
+      .plan-logo {
+        justify-self: start;
+      }
+
+      .channel-value {
+        font-size: 18px;
+      }
+
+      .scan-card {
+        width: 116px;
+      }
+
+      .addon-pills li {
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        animation: none;
+      }
+
+      .poster {
+        width: 210mm;
+        min-height: 297mm;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .top-stripe,
+      .hero,
+      .cta,
+      .combo::before {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="top-stripe" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="confetti" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <section>
+        <h1>Party Food Made Easy! Delicious Catering for Indoor Playground Celebrations</h1>
+        <p class="hero-subtitle">
+          Let BriteMinds take care of the food so you can focus on the fun.
+          Perfect for birthdays, playdates, and special events.
+        </p>
+        <div class="tag-row" aria-label="event types">
+          <span class="tag">Birthdays</span>
+          <span class="tag">Playdates</span>
+          <span class="tag">Special Events</span>
+        </div>
+      </section>
+
+      <section class="hero-media" aria-label="indoor playground and party food visuals">
+        <figure class="main-shot">
+          <img src="https://live.staticflickr.com/3012/2871697045_a3225a595b_b.jpg" alt="Kids enjoying indoor playground space" loading="lazy">
+        </figure>
+        <div class="mini-row">
+          <figure class="mini-shot">
+            <img src="https://themadtable.com/wp-content/uploads/2021/03/Fruit-Board-2048x1366.jpg" alt="Fresh fruit board with yogurt dip for party catering" loading="lazy">
+          </figure>
+          <figure class="mini-shot">
+            <img src="https://img.freepik.com/premium-photo/tasty-slices-different-pizza-with-pepperoni-tomatoes-cheese-seafood-cutting-board-top-view-flat-lay-with-copy-space_522560-20105.jpg" alt="Assorted pizza slices with mixed toppings for party catering" loading="lazy">
+          </figure>
+        </div>
+      </section>
+    </header>
+
+    <section class="gallery">
+      <article class="gallery-card">
+        <img src="https://live.staticflickr.com/5190/5619617560_f24e1d0c8d.jpg" alt="Party appetizer spread on table for events" loading="lazy">
+        <p>
+          Appetizer bites, pizza favorites, fresh fruit platters, and sushi platters arranged party-style to match indoor playground celebrations.
+        </p>
+      </article>
+    </section>
+
+    <section class="main-content">
+      <section>
+        <h2 class="section-title">Choose Your Party Combo</h2>
+        <p class="section-sub">Flexible portions, kid-friendly variety, and stress-free catering options.</p>
+      </section>
+
+      <section class="combo-grid">
+        <article class="combo combo-a">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo A</h3>
+            <p class="combo-price">$199</p>
+          </div>
+          <p class="combo-tagline">Great for small gatherings</p>
+          <ul>
+            <li>1 Appetizer Platter</li>
+            <li>1 Fresh Salad</li>
+            <li>2 Large Pizzas</li>
+            <li>1 Baked Pasta</li>
+            <li>1 Assorted Dessert Platter or Fruit Platter</li>
+          </ul>
+        </article>
+
+        <article class="combo combo-b">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo B</h3>
+            <p class="combo-price">$299</p>
+          </div>
+          <p class="combo-tagline">Our most popular party package</p>
+          <ul>
+            <li>2 Appetizer Platters</li>
+            <li>1 Fresh Salad</li>
+            <li>2 Large Pizzas</li>
+            <li>1 Baked Pasta</li>
+            <li>1 Assorted Sushi Platter</li>
+            <li>1 Assorted Dessert Platter</li>
+            <li>1 Fruit Platter</li>
+          </ul>
+        </article>
+
+        <article class="combo combo-c">
+          <div class="combo-head">
+            <h3 class="combo-name">Combo C</h3>
+            <p class="combo-price">$399</p>
+          </div>
+          <p class="combo-tagline">Ultimate feast for big celebrations</p>
+          <ul>
+            <li>2 Appetizer Platters</li>
+            <li>2 Fresh Salads</li>
+            <li>3 Large Pizzas</li>
+            <li>2 Baked Pastas</li>
+            <li>1 Assorted Sushi Platter</li>
+            <li>1 Assorted Dessert Platter</li>
+            <li>1 Fruit Platter</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="addons-strip" aria-label="available add-ons">
+        <h3>Add-Ons Available</h3>
+        <ul class="addon-pills">
+          <li>Extra platters</li>
+          <li>Drinks</li>
+          <li>Themed desserts</li>
+          <li>Special dietary requests</li>
+        </ul>
+      </section>
+
+      <section class="cta">
+        <h3>Let's Plan Your Party!</h3>
+        <p class="cta-intro">Book faster by choosing your preferred channel below.</p>
+        <div class="contact-capture">
+          <div class="contact-channels">
+            <a class="channel-card phone" href="tel:+17782237006">
+              <span class="channel-label">Call or Text</span>
+              <span class="channel-value">778-223-7006</span>
+              <span class="channel-meta">Fastest for booking checks and party-date holds.</span>
+            </a>
+            <a class="channel-card email" href="mailto:britemindslab@gmail.com">
+              <span class="channel-label">Email</span>
+              <span class="channel-value">britemindslab@gmail.com</span>
+              <span class="channel-meta">Send guest count, allergies, and combo preference.</span>
+            </a>
+            <a class="channel-card website" href="https://www.britemindslab.com/">
+              <span class="channel-label">Website</span>
+              <span class="channel-value">www.britemindslab.com</span>
+              <span class="channel-meta">View menus and request a custom package.</span>
+            </a>
+            <p class="response-pill">Quick replies for booking and menu customization.</p>
+          </div>
+          <aside class="contact-aside" aria-label="logo and quick access code">
+            <figure class="company-logo plan-logo" aria-label="Brite Minds Lab logo">
+              <svg viewBox="0 0 220 220" role="img" aria-label="Brite Minds Lab logo mark">
+                <defs>
+                  <path id="logo-top-arc" d="M 30 118 A 80 80 0 0 1 190 118"></path>
+                  <path id="logo-bottom-arc" d="M 30 118 A 80 80 0 0 0 190 118"></path>
+                </defs>
+                <text class="logo-text">
+                  <textPath href="#logo-top-arc" startOffset="50%" text-anchor="middle">BRITE MINDS LAB</textPath>
+                </text>
+                <text class="logo-text">
+                  <textPath href="#logo-bottom-arc" startOffset="50%" text-anchor="middle">EATING SMART</textPath>
+                </text>
+                <text x="110" y="156" text-anchor="middle" class="logo-b">B</text>
+              </svg>
+            </figure>
+            <figure class="scan-card">
+              <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwww.britemindslab.com%2F&size=260&ecLevel=Q&margin=2" alt="QR code linking to www.britemindslab.com" loading="lazy">
+              <figcaption>Scan for website details</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+  </main>
+</body>
+</html>
